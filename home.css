@@ -1,0 +1,216 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Signika, sans-serif;
+	margin-top: 30px;
+	font-size: 1.2rem;
+}
+
+.title {
+	text-align: center;
+	clear: both;
+	height: 400px;
+}
+
+.title img {
+  height: 400px;
+  filter: brightness(85%);
+}
+
+#header-title {
+	position: absolute;
+	margin-top: 120px;
+	width: 100%;
+	font-size: 4rem;
+	text-align: center
+	margin: auto;
+	color: white;
+	z-index: 1;
+	/* position: absolute; */
+	/*top: 300px;*/
+}
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  margin: 0 10% 0 0;
+  float: right;
+  right: 0;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #00aae9;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #00aae9;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.navbar a, .dropbtn {
+	padding: 60px 24px;
+}
+
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #00aae9;
+  color: #fff;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 250px;
+  box-shadow: 0px 8px 1rem 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-top: 2px solid #00aae9;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 1rem;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #00aae9;
+}
+
+.bottom-dropdown:hover{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#logo {
+	max-height: 126px;
+	margin-left: 10%;
+	float: left;
+}
+
+.section {
+	padding-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 125px;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding-left: 100px;
+	padding-right: 100px;
+	clear: both;
+}
+
+.section p {
+	color: #4f4f4f;
+}
+
+#about h2 {
+	color: #0a8f00;
+	font-weight: 100;
+}
+
+#phil h2 {
+	color: #e85e00;
+	font-weight: 100;
+}
+
+#conv h2 {
+	color: #f00;
+	font-weight: 100;
+}
+
+#sections {
+	/*margin-top: 600px;*/
+}
+
+#about p {
+	padding-right: 375px;
+}
+
+#phil p, #phil h2{
+	padding-left: 375px;
+}
+
+#conv p {
+		padding-right: 375px;
+	}
+
+#phil {
+	background-color: #f7f7f7;
+	vertical-align: center;
+	height: 190px;
+}
+
+.right-image {
+	float: right;
+}
+
+.left-image {
+	float: left;
+}
+
+.register {
+	margin-top: 0px;
+	color: #00aae9;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+.register a {
+	text-decoration: none;
+	background-color: #00aae9;
+	color: white;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.register p {
+	margin-bottom: 50px;
+}
+
+.register a:hover {
+	background-color: #0099d8;
+}
+
+.register a:active {
+	background-color: #0088c7;
+}
+
+#footer {
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
