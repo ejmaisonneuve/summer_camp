@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+
+<html lang = "en">
+
+<head>
+  <meta charset = "UTF-8" />
+  <title>School in the Pines Summer Camp</title>
+  <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./home.css" media = "all" />
+  <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./about.css" media = "all" />
+  <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <a href="./home.html">
+  <img id="logo" src = "./logo.png" alt = "sitp logo"/>
+  </a>
+
+  <div class="navbar">
+  <a class="no-drop" href="./about.html">About Us</a>
+    <div class="dropdown">
+    <button class="dropbtn">Nutrition
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./lunch_menu.html">Lunch Menu</a>
+      <a href="./snacks.html">Snacks</a>
+      <a class="bottom-dropdown" href="./allergies.html">Allergy Information</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Policies/Fees
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./apps_fees.html">Applications & Fees</a>
+      <a class="bottom-dropdown" href="./field_trips.html">Field Trip Waivers</a>
+    </div>
+  </div>
+  <a class="no-drop" href="./contact_page.html">Contact Us</a>
+  <a class="no-drop" href="./login.html">Log In</a>
+  </div>
+
+
+  <div class = "titles">
+    <h1 id="about-title">About Us</h1>
+    <h2 id ="sub-title">Meet Our Staff</h2>
+  </div>
+
+  <div class="staff-section">
+    <img class="staff-image centered" src="SITP_Amanda.png" alt="Amanda Maisonneuve" onclick="onImageClicked(event)">
+    <h2 class="staff-name">Amanda Maisonneuve</h2>
+    <h3 class="staff-title">Owner/Director</h3>
+    <p class="staff-description">Amanda received her bachelors degree in business administration from Texas A&M. She has been employed at the school since the age of 14, when her mom opened the center. She helped design preschool classrooms, put up the original alphabet train, assisted in summer camp programs, and helped paint all the original home living furniture. Amanda has extensive experience teaching all ages of preschool, and working with school-age children during holidays and summer camp. Amanda continues her early childhood education through ongoing online courses and in-school staff trainings.
+
+    Amanda and Joe have four children. Their two school-age (Lemm and Schindewolf) daughters were adopted from Haiti. They also have a son at Klein Collins HS and another son at UT Austin. The family are active members of Faithbridge Church. In their free time, they enjoy traveling together, swimming, riding bikes, and playing games.</p>
+  </div>
+
+  <div class="staff-section">
+    <img class="staff-image centered" src="SITP_Joe.png" alt="Joe Maisonneuve" onclick="onImageClicked(event)">
+    <h2 class="staff-name">Joe Maisonneuve</h2>
+    <h3 class="staff-title">Owner/Administrator</h3>
+    <p class="staff-description">Joe Maisonneuve has worked at School in the Pines since 1996, when he joined his wife Amanda in the family business. Joe was born in Oklahoma, then lived in Texas and California. Joe graduated from the University of California, Riverside with a business degree. Joe’s background in business and finance helps him keep track of the payroll and bookkeeping at school. Joe is also our go-to guy for technical assistance whether a computer problem, a broken XBOX, or a clogged toilet.
+
+  In his free time, Joe enjoys volunteering at Faithbridge church, swimming and playing outside with his children, reading, and playing video games.</p>
+  </div>
+
+  <script src="about.js"></script>
+
+  
+
+  </body>
+</html>
