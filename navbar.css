@@ -6,6 +6,14 @@
   right: 0;
 }
 
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Signika, sans-serif;
+	margin-top: 30px;
+	font-size: 1.2rem;
+}
+
 /* Links inside the navbar */
 .navbar a {
   float: left;
