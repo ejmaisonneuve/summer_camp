@@ -1,0 +1,191 @@
+h1 {
+  /*position: absolute;*/
+  clear: both;
+  font-family: "Signika", sans-serif;
+  text-align: center;
+  color: white;
+  background-color: #f00;
+  padding: 70px 0;
+  width: 100%;
+  margin-bottom: ;
+}
+
+#app_fam {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  width: 700px;
+}
+
+#app_fam > caption {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+div {
+  font-size: 16px;
+  margin-bottom: -5px;
+  font-weight: 100;
+}
+
+
+input {
+  border: 1px solid #ddd;
+  height: 40px;
+  font-family: "Open Sans", sans-serif;
+  padding-left: 15px;
+  margin: 5px;
+  width: 150px;
+
+}
+
+:focus {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 2px solid #f00;
+}
+
+select {
+  font-family: "Open Sans", sans-serif;
+  color: #777;
+  border: 1px solid #ddd;
+  width: 170px;
+  height: 40px;
+  padding-left: 15px;
+  margin: 5px;
+}
+
+.take_2 {
+  width: 330px;
+}
+
+.sibling_row {
+}
+
+.special_text {
+  width: 720px;
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 20px;
+}
+
+.another {
+  margin-left: 5px;
+  height: 45px;
+  margin-top: 23px;
+  width: 130px;
+  font-family: "Open Sans", sans-serif;
+  border: 0;
+  border-radius: 10px;
+  background-color: #f00;
+  color: white;
+}
+
+#app_med {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  width: 700px;
+}
+
+#app_med > caption {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.extra_text {
+  font-size: 15px;
+  text-align: center;
+}
+
+#app_add {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  width: 700px;
+}
+
+#app_add > caption {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.r_b {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+table {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f00;
+}
+
+#app_sch {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  width: 700px;
+}
+
+#app_sch > caption {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.take_4 {
+  width: 700px;
+}
+
+textarea {
+  border: 1px solid #ddd;
+  height: 40px;
+  font-family: "Open Sans", sans-serif;
+  padding-left: 15px;
+  margin: 5px;
+  width: 700px;
+  height: 80px;
+}
+
+.choices {
+  padding-left: 15px;
+}
+
+.need_space {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+#special_case {
+  margin-top: 8px;
+}
+
+#finish {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+  width: 700px;
+}
+
+#s_b {
+  margin-left: 120px;
+  height: 45px;
+  width: 130px;
+  font-family: "Open Sans", sans-serif;
+  border: 0;
+  border-radius: 10px;
+  background-color: #f00;
+  color: white;
+  margin-bottom: 50px;
+}

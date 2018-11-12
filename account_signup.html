@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+  <title>Account Sign-Up</title>
+  <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./account_signup.css" media = "all" />
+  <script src = "./account_signup.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1>Thank You for Applying!</h1>
+  <p>Now, please sign up for an account so we can keep you updated on your application process</p>
+
+  <form id = "textForm" method = "post" action = "./redirect.html" onsubmit = "return validate();" >
+    <ul>
+      <li><input class = "inputs" type = "text" name = "userName" placeholder="Family Last Name (pick one if multiple)"/></li>
+      <li><input class = "inputs" type = "password" name = "pass" placeholder="Password"/></li>
+      <li><input class = "inputs" type = "password" name = "rep_pass" placeholder="Retype your Password"/></li>
+    </ul>
+    <ul id = "buttons">
+      <li class = "button_li"><input class = "button" id = "submit" type = "submit" value = "Register" /></li>
+      <li class = "button_li"><input class = "button" id = "clear" type = "reset" value = "Clear" /></li>
+    </ul>
+
+  </form>
+</body>
+</html>
