@@ -87,28 +87,28 @@
     </ul>
 
   <div id="contact-form">
-    <form>
+    <form method="POST" action="./contact_page.php">
       <ul class = "form-list1">
-        <li><input placeholder="First and Last Name" name="name" id="name" type="text" class="client-contact-text" /></li>
+        <li><input placeholder="Full Name" name="name" id="name" type="text" class="client-contact-text" /></li>
         <li><input placeholder="E-mail Address" name="email" id="email" type="text" class="client-contact-text" /></li>
         <li><input placeholder="Phone Number" name="phone" id="phone" type="text" class="client-contact-text" /></li>
       </ul>
       <ul class = "form-list2">
-        <li><select required>
+        <li><select name='subject' required>
             <option value="" disabled selected hidden>Subject</option>
-            <option value="0">Preschool</option>
-            <option value="1">Toddler Care</option>
-            <option value="2">Two-Year Old</option>
-            <option value="3">Three-Year Old</option>
-            <option value="4">Prekindergarten</option>
-            <option value="5">Extended Care</option>
-            <option value="6">Lemm Prekindergarten Care</option>
-            <option value="7">School Age Care</option>
-            <option value="8">Enrichment Programs</option>
-            <option value="9">Employment</option>
-            <option value="10">Other</option>
+            <option value="preschool">Preschool</option>
+            <option value="toddler_care">Toddler Care</option>
+            <option value="two_year_old">Two-Year Old</option>
+            <option value="three_year_old">Three-Year Old</option>
+            <option value="prekindergarten">Prekindergarten</option>
+            <option value="extended_care">Extended Care</option>
+            <option value="lemm_prek_care">Lemm Prekindergarten Care</option>
+            <option value="school_age_care">School Age Care</option>
+            <option value="enrichment_programs">Enrichment Programs</option>
+            <option value="employment">Employment</option>
+            <option value="other">Other</option>
           </select></li>
-        <li><textarea name = "comments" id = "comments" rows = "7" cols = "50" placeholder = "Message"></textarea></li>
+        <li><textarea name = "message" id = "comments" rows = "7" cols = "50" placeholder = "Message"></textarea></li>
       </ul>
         <!--table id="buttons-form">
             <tr>

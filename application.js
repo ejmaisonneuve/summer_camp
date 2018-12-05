@@ -14,6 +14,7 @@ function show_rows() {
 
   for (i = 0; i < (num_sibs*2); i+=2) {
     var new_input = document.createElement("input");
+    var num = i/2 + 1;
     new_input.type = "text";
     if(i == 12) {
       new_input.placeholder = "Rest of Names";
@@ -21,6 +22,7 @@ function show_rows() {
     else {
       new_input.placeholder = "Name";
     }
+    new_input.name = "sibling_name_" + num;
     new_input.className = "sibling_info";
     rows_list[i].appendChild(new_input);
     new_input = document.createElement("input");
@@ -31,13 +33,16 @@ function show_rows() {
     else {
       new_input.placeholder = "Age";
     }
+    new_input.name = "sibling_age_" + num;
     new_input.className = "sibling_info";
     rows_list[i+1].appendChild(new_input);
   }
 }
 
 function add_pickup(item) {
-
+  var helper = document.getElementById("pickup_helper");
+  var new_num = parseInt(helper.name) + 1;
+  helper.id = "";
   var prev_name = document.getElementById("prev_name").value;
   var prev_address = document.getElementById("prev_address").value;
   if(prev_name.length == 0 || prev_address.length == 0) {
@@ -47,18 +52,23 @@ function add_pickup(item) {
 
   var table = document.getElementById("app_fam");
   var new_row = document.createElement("tr");
-  var new_input = create_input(item, "Name", "Edith Anne Doe", "2");
+  var new_input = create_input(item, "Name", "Edith Anne Doe", "2", "pickup_name_"+new_num);
   document.getElementById("prev_name").id = "";
   new_input.childNodes[1].id = "prev_name";
   new_row.appendChild(new_input);
-  new_input = create_input(item, "Relationship", "Grandmother", "1");
+  new_input = create_input(item, "Relationship", "Grandmother", "1", "pickup_relationship_"+new_num);
   new_row.appendChild(new_input);
-  new_input = create_input(item, "Phone", "(123) 456-7890", "1");
+  new_input = create_input(item, "Phone", "(123) 456-7890", "1", "pickup_phone_"+new_num);
+  var new_helper = document.createElement("input");
+  new_helper.type = 'hidden';
+  new_helper.name = new_num;
+  new_helper.id = 'pickup_helper';
   new_row.appendChild(new_input);
+  new_row.appendChild(new_helper);
   table.appendChild(new_row);
 
   var new_row = document.createElement("tr");
-  new_input = create_input(item, "Address", "1111 Left Lane, Spring, TX, 77388", "2");
+  new_input = create_input(item, "Address", "1111 Left Lane, Spring, TX, 77388", "2", "pickup_address_"+new_num);
   document.getElementById("prev_address").id = "";
   new_input.childNodes[1].id = "prev_address";
   new_row.appendChild(new_input);
@@ -77,12 +87,13 @@ function create_button(item) {
 
 }
 
-function create_input(item, title, ph, span) {
+function create_input(item, title, ph, span, name) {
   var new_place = document.createElement("td");
   var new_title = document.createElement("div");
   var new_text = document.createTextNode(title);
   var new_item = document.createElement("input");
   new_item.type = "text";
+  new_item.name = name;
   new_item.placeholder = ph;
   if(span === "2") {
     new_item.style.width = "330px";

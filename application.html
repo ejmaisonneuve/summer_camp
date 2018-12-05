@@ -46,25 +46,25 @@
 
   <h1 id = "top">School in the Pines Summer Camp 2019 Schooler Application</h1>
 
-  <form action="./account_signup.html">
+  <form method="POST" action="./account_signup.php">
     <table id = "app_fam" >
       <caption>Family Information</caption>
       <tr>
-        <td><div>Child's Name</div><input type = "text"  placeholder="Jonathan Nelson Doe" required/></td>
-        <td><div>Nickname</div><input type = "text"  placeholder="Jonny"/></td>
-        <td><div>Sex</div><input type = "text"  placeholder="Male" required/></td>
-        <td><div>Date of Birth</div><input type = "text"  placeholder="DD/MM/YY" required/></td>
+        <td><div>Child's Name</div><input type = "text" name="child_name" placeholder="Jonathan Nelson Doe" required/></td>
+        <td><div>Nickname</div><input type = "text" name="nickname" placeholder="Jonny"/></td>
+        <td><div>Sex</div><input type = "text" name='sex' placeholder="Male" required/></td>
+        <td><div>Date of Birth</div><input type = "text" name='date_of_birth' placeholder="MM/DD/YYYY" required/></td>
       </tr>
       <tr>
-        <td><div>Home Phone</div><input id = "Home" class = "phones" type = "text"  placeholder="(123) 456-7890"></td>
-        <td colspan="2"><div>Mailing Address</div><input class = "take_2" type = "text"  placeholder="1111 Left Lane, Spring TX, 77388" required/></td>
-        <td><div>Subdivision</div><input type = "text"  placeholder="Forest Oaks"/></td>
+        <td><div>Home Phone</div><input id = "Home" class = "phones" type = "text" name='home_phone' placeholder="(123) 456-7890"></td>
+        <td colspan="2"><div>Mailing Address</div><input class = "take_2" type = "text" name='mailing_address'  placeholder="1111 Left Lane, Spring TX, 77388" required/></td>
+        <td><div>Subdivision</div><input type = "text" name='subdivision'  placeholder="Forest Oaks"/></td>
       </tr>
       <tr>
-        <td><div>Current School Grade</div><input type = "text"  placeholder="2nd Grade" required/></td>
-        <td colspan="2"><div>Teacher(s) Name(s)</div><input class = "take_2" type = "text"  placeholder="Jennifer Mann, Vincent Edward"/></td>
+        <td><div>Current School Grade</div><input type = "text" name='current_school_grade' placeholder="2nd Grade" required/></td>
+        <td colspan="2"><div>Teacher(s) Name(s)</div><input class = "take_2" type = "text" name='teacher_names' placeholder="Jennifer Mann, Vincent Edward"/></td>
         <td><div>T-Shirt Size</div>
-          <select required>
+          <select required name='t-shirt_size'>
             <option value="" disabled selected hidden>Select Size</option>
             <option value="xs">X-Small</option>
             <option value="s">Small</option>
@@ -75,28 +75,28 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2"><div>Father's Name</div><input id="father" class = "take_2" type = "text"  placeholder="David Nelson Doe"/></td>
-        <td><div>Occupation</div><input type = "text"  placeholder="Accountant"/></td>
-        <td><div>Employed By</div><input type = "text"  placeholder="Big Company"/></td>
+        <td colspan="2"><div>Father's Name</div><input id="father" class = "take_2" type = "text" name='father_name' placeholder="David Nelson Doe"/></td>
+        <td><div>Occupation</div><input type = "text" name='father_occupation' placeholder="Accountant"/></td>
+        <td><div>Employed By</div><input type = "text" name='father_employed_by' placeholder="Big Company"/></td>
       </tr>
       <tr>
-        <td><div>Business Phone</div><input type = "text"  placeholder="(123) 456-7890"/></td>
-        <td><div>Cell Phone</div><input id="Father's" class = "phones" type = "text"  placeholder="(123) 456-7890"/></td>
-        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text"  placeholder="myemail@email.com"/></td>
+        <td><div>Business Phone</div><input type = "text" name='father_business_phone' placeholder="(123) 456-7890"/></td>
+        <td><div>Cell Phone</div><input id="Father's" class = "phones" type = "text" name='father_cell_phone' placeholder="(123) 456-7890"/></td>
+        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text" name='father_email' placeholder="myemail@email.com"/></td>
       </tr>
       <tr>
-        <td colspan="2"><div>Mother's Name</div><input id="mother" class = "take_2" type = "text"  placeholder="Diana Emily Doe"/></td>
-        <td><div>Occupation</div><input type = "text"  placeholder="Actuary"/></td>
-        <td><div>Employed By</div><input type = "text"  placeholder="Another Big Company"/></td>
+        <td colspan="2"><div>Mother's Name</div><input id="mother" class = "take_2" type = "text" name='mother_name' placeholder="Diana Emily Doe"/></td>
+        <td><div>Occupation</div><input type = "text" name='mother_occupation' placeholder="Actuary"/></td>
+        <td><div>Employed By</div><input type = "text" name='mother_employed_by' placeholder="Another Big Company"/></td>
       </tr>
       <tr>
-        <td><div>Business Phone</div><input type = "text"  placeholder="(123) 456-7890"/></td>
-        <td><div>Cell Phone</div><input id="Mother's" class = "phones" type = "text"  placeholder="(123) 456-7890"/></td>
-        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text"  placeholder="myemail@email.com"/></td>
+        <td><div>Business Phone</div><input type = "text" name='mother_business_phone' placeholder="(123) 456-7890"/></td>
+        <td><div>Cell Phone</div><input id="Mother's" class = "phones" type = "text" name='mother_cell_phone' placeholder="(123) 456-7890"/></td>
+        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text" name='mother_email' placeholder="myemail@email.com"/></td>
       </tr>
       <tr>
         <td><div>Number of Siblings:</div>
-          <select id = "num_sib" onchange="show_rows();" required>
+          <select id = "num_sib" name='number_of_siblings' onchange="show_rows();" required>
             <option value="" disabled selected hidden>select</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -121,13 +121,13 @@
         pick up your child. Identification must be provided to front desk at pick up time. Phone number and address required.</td>
       </tr>
       <tr class = "pick_up_row">
-        <td colspan="2"><div>Name</div><input id="prev_name" class = "take_2" type = "text"  placeholder="Edith Anne Doe"/></td>
-        <td><div>Relationship</div><input type = "text" placeholder="Grandmother" /></td>
-        <td><div>Phone</div><input type = "text" placeholder="(123) 456-7890" /></td>
+        <td colspan="2"><div>Name</div><input id="prev_name" class = "take_2" type = "text" name='pickup_name_1' placeholder="Edith Anne Doe"/></td>
+        <td><div>Relationship</div><input type = "text" name='pickup_relationship_1' placeholder="Grandmother" /></td>
+        <td><div>Phone</div><input type = "text" name='pickup_phone_1' placeholder="(123) 456-7890" /></td>
       </tr>
       <tr class = "pick_up_row">
-        <td colspan="2"><div>Address</div><input id = "prev_address" class = "take_2" type = "text"  placeholder="1111 Left Lane, Spring TX, 77388"/></td>
-        <td colspan="2"><input type = "button" class = "another" value = "Add Another" onclick="add_pickup(this);" /></td>
+        <td colspan="2"><div>Address</div><input id = "prev_address" class = "take_2" type = "text" name='pickup_address_1' placeholder="1111 Left Lane, Spring TX, 77388"/></td>
+        <td colspan="2"><input type = "button" class = "another" value = "Add Another" onclick="add_pickup(this);" /><input type='hidden' id='pickup_helper' name='1'></td>
       </tr>
     </table>
 
@@ -138,9 +138,9 @@
         SCHOOL IN THE PINES to take my child to (or the nearest hospital):</td>
       </tr>
       <tr>
-        <td><div>Doctor Name</div><input type = "text" placeholder="Dr. James Anderson" required /></td>
-        <td><div>Address</div><input class = "take_2" type = "text"  placeholder="1111 Left Lane, Spring TX, 77388"  required/></td>
-        <td><div>Phone</div><input type = "text" placeholder="(123) 456-7890"  required/></td>
+        <td><div>Doctor Name</div><input type = "text" name='doctor_name' placeholder="Dr. James Anderson" required /></td>
+        <td><div>Address</div><input class = "take_2" type = "text" name='doctor_address' placeholder="1111 Left Lane, Spring TX, 77388"  required/></td>
+        <td><div>Phone</div><input type = "text" name='doctor_phone' placeholder="(123) 456-7890" required/></td>
       </tr>
       <tr>
         <td class = "extra_text" colspan="4">*Submition of this form serves as a medical authorization release.</td>
@@ -150,69 +150,69 @@
     <table id ="app_sch">
       <caption>Schooler Information</caption>
       <tr>
-        <td colspan="4"><div>Describe your child's personality (shy, outgoing, laid back, etc.):</div><input type="text" class="take_4"  required/></td>
+        <td colspan="4"><div>Describe your child's personality (shy, outgoing, laid back, etc.):</div><input type="text" class="take_4" name='child_personality' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textarea required></textarea></td>
+        <td colspan="4"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textareaname='special_behavior' required></textarea></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Please list any health problems (n/a if none):</div><input type="text" class="take_4"  required/></td>
+        <td colspan="4"><div>Please list any health problems (n/a if none):</div><input type="text" class="take_4" name='health_problems' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>List all dietary restrictions and allergies (n/a if none); Please be specefic:</div><input type="text" class="take_4"  required/></td>
+        <td colspan="4"><div>List all dietary restrictions and allergies (n/a if none); Please be specefic:</div><input type="text" class="take_4" name='dietary_restrictions_and_allergies' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Has your child recently gone through any major changes or been exposed to new situations (i.e divorce, move, serious accident or death in the family, etc.)?</div><input type="text" class="take_4"  required/></td>
+        <td colspan="4"><div>Has your child recently gone through any major changes or been exposed to new situations (i.e divorce, move, serious accident or death in the family, etc.)?</div><input type="text" class="take_4" name='major_life_changes' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Does your child have any special fears (dar, monsters, bugs, etc.)?</div><input type="text" class="take_4" required /></td>
+        <td colspan="4"><div>Does your child have any special fears (dar, monsters, bugs, etc.)?</div><input type="text" class="take_4" name='special_fears' required /></td>
       </tr>
       <tr>
         <td colspan="4"><div>Please help us understand your child's home situation (i.e. living with both parents, spending time alone with each parent, living with grandparent, etc.).
-        This information helps us when we talk about Mother's day, Father's day, and families. If your child was adopted, you may share this information with us.</div><textarea required></textarea></td>
+        This information helps us when we talk about Mother's day, Father's day, and families. If your child was adopted, you may share this information with us.</div><textarea name='home_situation' required></textarea></td>
       </tr>
       <tr>
-        <td colspan="4"><div>List your child's favorite characters, toys, super heroes, interests, etc.</div><input type="text" class="take_4"  required/></td>
+        <td colspan="4"><div>List your child's favorite characters, toys, super heroes, interests, etc.</div><input type="text" class="take_4" name='interests' required/></td>
       </tr>
       <tr>
         <td colspan="4"><div>We offer a short blessing before snacks and meals. If you would like, you may share your religious affiliation, church denomination, etc. This may
-        help us as we celebrate holidays in the classroom.</div><input type="text" class="take_4" /></td>
+        help us as we celebrate holidays in the classroom.</div><input type="text" class="take_4" name='religion'/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>In the fall, many children from School in the Pines attend a <em>See You at the Pole</em> prayer rally (held at Lemm in the morning before school starts). Please let us know if your child may participate.</div><input type="text" class="take_4" /></td>
+        <td colspan="4"><div>In the fall, many children from School in the Pines attend a <em>See You at the Pole</em> prayer rally (held at Lemm in the morning before school starts). Please let us know if your child may participate.</div><input type="text" class="take_4" name='see_you_at_the_pole'/></td>
       </tr>
       <tr>
         <td colspan="4"><div>From time to time, we like to display photographs of the children in our classes and use photos for our school brochures or website. Please let us know if you agree to have your child photographed and
         their photo use for these purposes</div></td>
       </tr>
       <tr>
-        <td><div class = "need_space">Classroom Display:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "classroom"  required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "classroom"  required/></td>
-        <td><div class = "need_space">Social Media:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "media"  required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "media"  required/></td>
-        <td><div class = "need_space">Website:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "web"  required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "web"  required/></td>
+        <td><div class = "need_space">Classroom Display:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "classroom_photos" value="yes" required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "classroom_photos" value="no" required/></td>
+        <td><div class = "need_space">Social Media:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "social_media_photos" value='yes' required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "social_media_photos" value='no' required/></td>
+        <td><div class = "need_space">Website:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "website_photos" value='yes' required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "website_photos" value='no' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div id = "special_case">Please list after-school (Lemm) activities your child will partcipate in (or let us know as soon as your child has signed up):</div><input type="text" class="take_4" /></td>
+        <td colspan="4"><div id = "special_case">Please list after-school (Lemm) activities your child will partcipate in (or let us know as soon as your child has signed up):</div><input type="text" class="take_4" name='child_activities'/></td>
       </tr>
     </table>
 
     <table id = "app_add">
       <caption>Additional Information</caption>
       <tr>
-        <td colspan="2"><div>School Most Recently Attended</div><input class = "take_2" type="text" placeholder="XYZ Daycare" /></td>
-        <td colspan="2"><div>How did You Hear About Us?</div><input class = "take_2" type = "text" placeholder="Friends, google ads, etc." required></td>
+        <td colspan="2"><div>School Most Recently Attended</div><input class = "take_2" type="text" name='most_recent_school' placeholder="XYZ Daycare" /></td>
+        <td colspan="2"><div>How did You Hear About Us?</div><input class = "take_2" type = "text" name='how_they_heard_about_us' placeholder="Friends, google ads, etc." required></td>
       </tr>
       <tr>
-        <td colspan="4"><div>My child attends Lemm Elementary (phone 832-484-6300) amd hisher immunization/vision/hearing records are on file there.</div></td>
+        <td colspan="4"><div>My child attends Lemm Elementary (phone 832-484-6300) amd his/her immunization/vision/hearing records are on file there.</div></td>
       </tr>
       <tr>
-        <td><div>Yes:</div><input class ="r_b" type = "radio" name = "lemm" required/></td>
-        <td><div>No:</div><input class ="r_b" type = "radio" name = "lemm" required/></td>
-        <td colspan="2"><div>If not, list current elementary school here:</div><input type = "text" class="take_2"/></td>
+        <td><div>Yes:</div><input class ="r_b" type = "radio" value='yes' name = "records_at_lemm" required/></td>
+        <td><div>No:</div><input class ="r_b" type = "radio" value='no' name = "records_at_lemm" required/></td>
+        <td colspan="2"><div>If not, list current elementary school here:</div><input type = "text" class="take_2" name='current_school'/></td>
       </tr>
     </table>
 
     <div id = "finish">
-      <div>Parent Signature</div><input class = "take_2" type="text"  required/>
+      <div>Parent Signature</div><input class = "take_2" type="text" name='signature' required/>
       <button id = "s_b" type="submit" onclick="return check_info();">Submit</button>
     </div>
 
