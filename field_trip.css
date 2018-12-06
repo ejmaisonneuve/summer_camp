@@ -1,0 +1,52 @@
+h1 {
+  width: 100%;
+  text-align: center;
+  background-color: #f00;
+  color: white;
+  padding: 40px 0;
+}
+
+#body {
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+ max-width: 400px;
+}
+
+table {
+  float: right;
+  margin-top: -170px;
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 1.5px solid black;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid black; 
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+.waiver {
+  height: 30px;
+  margin-left: 15px;
+}
+
+a {
+  color: #00aae9;
+}
+
+a:hover {
+  color: #009ad3;
+}
+
+a:active {
+  color: #0080af;
+}
+
