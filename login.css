@@ -6,6 +6,11 @@ body {
 h1 {
   text-align: center;
   font-size: 40px;
+  clear: both;
+  font-family: 'Signika', sans-serif;
+  background-color: #ff6700;
+  padding: 40px 0;
+  color: white;
 }
 
 ul {

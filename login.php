@@ -42,7 +42,30 @@ print <<<LOGIN
   <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel="stylesheet">
 </head>
 <body>
-  <h1>Login</h1>
+
+
+  <a href='./home.html'><img id="logo" src = "./logo.png" alt = "sitp logo"/>
+  </a>
+
+  <div class="navbar">
+  <a class="no-drop" href="./about.html">About Us</a>
+  <a class="no-drop" href="./nutrition.html">Nutrition</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Forms
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./application.html">Application</a>
+      <a href="./policies_fees.pdf">Policies & Fees</a>
+      <a class="bottom-dropdown" href="./field_trips.html">Field Trip Waivers</a>
+    </div>
+  </div>
+  <a class="no-drop" href="./contact_page.html">Contact Us</a>
+  <a class="no-drop" href="./login.php">Log In</a>
+  </div>
+
+ <h1>Login</h1>
   <form id = "textForm" method = "post" action = "$script" >
     <ul>
       <li><input class = "inputs" type = "text" name = "userName" id = "userName" placeholder="Username" value="$username" required/></li>

@@ -214,3 +214,16 @@ body {
     margin-right: auto;
     text-align: center;
 }
+
+a {
+  color: #00aae9;
+}
+
+a:hover {
+  color: #009ad3;
+}
+
+a:active {
+  color: #0080af;
+}
+
