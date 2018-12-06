@@ -45,7 +45,8 @@ function add_pickup(item) {
   helper.id = "";
   var prev_name = document.getElementById("prev_name").value;
   var prev_address = document.getElementById("prev_address").value;
-  if(prev_name.length == 0 || prev_address.length == 0) {
+  var prev_rel = document.getElementById("prev_rel").value;
+  if(prev_name.length == 0 || prev_address.length == 0 || prev_rel.length == 0) {
     window.alert("Please fill out current person's information before adding another person.");
     return;
   }
@@ -57,6 +58,8 @@ function add_pickup(item) {
   new_input.childNodes[1].id = "prev_name";
   new_row.appendChild(new_input);
   new_input = create_input(item, "Relationship", "Grandmother", "1", "pickup_relationship_"+new_num);
+  //document.getElementById("prev_rel").id = "";
+  //new_input.childNodes[1].id = "prev_rel";
   new_row.appendChild(new_input);
   new_input = create_input(item, "Phone", "(123) 456-7890", "1", "pickup_phone_"+new_num);
   var new_helper = document.createElement("input");

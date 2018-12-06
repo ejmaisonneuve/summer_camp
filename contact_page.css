@@ -17,6 +17,7 @@ body {
     margin-bottom: 20px;
     font-weight: 100;
     font-size: 60px;
+    clear: both;
 }
 
 #sub-title {

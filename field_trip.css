@@ -4,6 +4,7 @@ h1 {
   background-color: #f00;
   color: white;
   padding: 40px 0;
+  clear: both;
 }
 
 #body {
