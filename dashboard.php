@@ -91,6 +91,10 @@ function onAccountUpdate($username, $password) {
         mysqli_stmt_bind_param ($stmt, 'ss', $username, $_SESSION["username"]);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        $stmt = mysqli_prepare ($connect, "UPDATE fieldtripforms SET username=? WHERE username=?");
+        mysqli_stmt_bind_param ($stmt, 'ss', $username, $_SESSION["username"]);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
         $_SESSION["username"] = $username;
     }
 
@@ -136,6 +140,27 @@ function getPickups($username) {
     $newArray = array();
     $table = "pickup";
     $result = mysqli_query($connect, "SELECT relationship, name, phone, address from $table where username='$username'");
+    while ($row = $result->fetch_row()) {
+        $newArray[] = [$row[0], $row[1], $row[2], $row[3]];
+    }
+    mysqli_close($connect);
+    $result->free();
+    return $newArray;
+}
+
+function getFieldTripWaivers($child_id) {
+    $host = "fall-2018.cs.utexas.edu";
+    $user = "cs329e_mitra_eshresth";
+    $pwd = "strife!Morgue6Tying";
+    $dbs = "cs329e_mitra_eshresth";
+    $port = "3306";
+    $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
+    if (empty($connect)) {
+        die("mysqli_connect failed: " . mysqli_connect_error());
+    }
+    $newArray = array();
+    $table = "fieldtripforms";
+    $result = mysqli_query($connect, "SELECT urban, altitude, palava, world from $table where child_id='$child_id'");
     while ($row = $result->fetch_row()) {
         $newArray[] = [$row[0], $row[1], $row[2], $row[3]];
     }
@@ -191,10 +216,11 @@ foreach ($_SESSION["children"] as $key=>$value) {
     $children = $children . "<li><input type='submit' class='childBtn' name='childBtn-$niceKey' value='$value'></li>";
     if (isset($_POST["childBtn-$niceKey"])) {
         $_SESSION["selectedChild"] = $key;
-        $behaviorReports = getBehaviorReports($key);
     }
 }
 if (isset($_SESSION["selectedChild"])) {
+    $behaviorReports = getBehaviorReports($_SESSION["selectedChild"]);
+    $fieldTripWaivers = getFieldTripWaivers($_SESSION["selectedChild"]);
     $behavior = "";
     $childName = $_SESSION["children"][$_SESSION["selectedChild"]];
     if (empty($behaviorReports)) {
@@ -211,10 +237,45 @@ if (isset($_SESSION["selectedChild"])) {
         }
         $behavior = $behavior . "</table>";
     }
+
+    if (empty($fieldTripWaivers)) {
+        $fieldtrip = "It looks like nothing's here...";
+    } else {
+        $fieldtrip = "<table class='childTable'><tr><td>Field Trip</td><td>Date</td><td>Waiver Status</td></tr>";
+        foreach ($fieldTripWaivers as $key=>$value) {
+            $urban = $value[0];
+            $altitude = $value[1];
+            $palava = $value[2];
+            $world = $value[3];
+            $fieldtrip = $fieldtrip . "<tr>";
+            $fieldtrip = $fieldtrip . "<td>Urban Air</td>";
+            $fieldtrip = $fieldtrip . "<td>1/1/2019</td>";
+            $fieldtrip = $fieldtrip . "<td>$urban</td>";
+            $fieldtrip = $fieldtrip . "</tr>";
+            $fieldtrip = $fieldtrip . "<tr>";
+            $fieldtrip = $fieldtrip . "<td>Altitude Trampoline Park</td>";
+            $fieldtrip = $fieldtrip . "<td>2/1/2019</td>";
+            $fieldtrip = $fieldtrip . "<td>$altitude</td>";
+            $fieldtrip = $fieldtrip . "</tr>";
+            $fieldtrip = $fieldtrip . "<tr>";
+            $fieldtrip = $fieldtrip . "<td>Palava</td>";
+            $fieldtrip = $fieldtrip . "<td>3/1/2019</td>";
+            $fieldtrip = $fieldtrip . "<td>$palava</td>";
+            $fieldtrip = $fieldtrip . "</tr>";
+            $fieldtrip = $fieldtrip . "<tr>";
+            $fieldtrip = $fieldtrip . "<td>World Champions Centre</td>";
+            $fieldtrip = $fieldtrip . "<td>4/1/2019</td>";
+            $fieldtrip = $fieldtrip . "<td>$world</td>";
+            $fieldtrip = $fieldtrip . "</tr>";
+        }
+        $fieldtrip = $fieldtrip . "</table>";
+    }
 return <<<PAGE
     <h4>$childName</h4>
     <h5>Behavior</h5>
     $behavior
+    <h5>Field Trip Waivers</h5>
+    $fieldtrip
 PAGE;
 }
 
