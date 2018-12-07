@@ -16,6 +16,8 @@ if (isset($_POST["logoutBtn"])) {
     $_SESSION["selectedPage"] = 1;
 } elseif (isset($_POST["pickupBtn"])) {
     $_SESSION["selectedPage"] = 2;
+} elseif (isset($_POST["financesBtn"])) {
+    $_SESSION["selectedPage"] = 3;
 }
 if (isset($username)) {
     showDashboard();
@@ -92,6 +94,10 @@ function onAccountUpdate($username, $password) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         $stmt = mysqli_prepare ($connect, "UPDATE fieldtripforms SET username=? WHERE username=?");
+        mysqli_stmt_bind_param ($stmt, 'ss', $username, $_SESSION["username"]);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        $stmt = mysqli_prepare ($connect, "UPDATE finances SET username=? WHERE username=?");
         mysqli_stmt_bind_param ($stmt, 'ss', $username, $_SESSION["username"]);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -184,6 +190,27 @@ function getBehaviorReports($child_id) {
     $result = mysqli_query($connect, "SELECT date, report from $table where child_id='$child_id'");
     while ($row = $result->fetch_row()) {
         $newArray[] = [$row[0], $row[1]];
+    }
+    mysqli_close($connect);
+    $result->free();
+    return $newArray;
+}
+
+function getFinancesData($username) {
+    $host = "fall-2018.cs.utexas.edu";
+    $user = "cs329e_mitra_eshresth";
+    $pwd = "strife!Morgue6Tying";
+    $dbs = "cs329e_mitra_eshresth";
+    $port = "3306";
+    $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
+    if (empty($connect)) {
+        die("mysqli_connect failed: " . mysqli_connect_error());
+    }
+    $newArray = array();
+    $table = "finances";
+    $result = mysqli_query($connect, "SELECT tuition, registration, swim, lunch, candy_allowed from $table where username='$username'");
+    while ($row = $result->fetch_row()) {
+        $newArray[] = [$row[0], $row[1], $row[2], $row[3], $row[4]];
     }
     mysqli_close($connect);
     $result->free();
@@ -324,6 +351,76 @@ $notification
 PAGE;
 }
 
+function getFinancesPage() {
+    $financesData = getFinancesData($_SESSION["username"]);
+    if (empty($financesData)) {
+        $finances = "Hmm... nothing seems to be here yet";
+    } else {
+        $finances = "<table class='childTable'>";
+        foreach ($financesData as $key=>$value) {
+            $tuition = $value[0];
+            $registration = $value[1];
+            $swim = $value[2];
+            $lunch = $value[3];
+            $allowed_candy = $value[4];
+
+            $tuitionText = "\$$tuition";
+            if ($tuition < 0) {
+                $tuition = $tuition * -1;
+            $tuitionText = "Not Paid (\$$tuition)";
+            } elseif ($tuition == 0) {
+                $tuitionText = "Paid";
+            }
+
+            $registrationText = "\$$registration";
+            if ($registration < 0) {
+                $registration = $registration * -1;
+            $registrationText = "Not Paid (\$$registration)";
+            } elseif ($registration == 0) {
+                $registrationText = "Paid";
+            }
+
+            $swimText = "\$$swim";
+            if ($swim < 0) {
+                $swim = $swim * -1;
+            $swimText = "Not Paid (\$$swim)";
+            } elseif ($swim == 0) {
+                $swimText = "Paid";
+            }
+
+            $lunchText = "\$$lunch";
+
+            $finances = $finances . "<tr>";
+            $finances = $finances . "<td>Weekly Tuition Due</td>";
+            $finances = $finances . "<td>$tuitionText</td>";
+            $finances = $finances . "</tr>";
+            $finances = $finances . "<tr>";
+            $finances = $finances . "<td>Summer Registration Fee</td>";
+            $finances = $finances . "<td>$registrationText</td>";
+            $finances = $finances . "</tr>";
+            $finances = $finances . "<tr>";
+            $finances = $finances . "<td>Forest Oaks Swim Fee</td>";
+            $finances = $finances . "<td>$swimText</td>";
+            $finances = $finances . "</tr>";
+            $finances = $finances . "<tr>";
+            $finances = $finances . "<td>Lunch & Candy Account Balance</td>";
+            $finances = $finances . "<td>$lunchText</td>";
+            $finances = $finances . "</tr>";
+            $finances = $finances . "<tr>";
+            $finances = $finances . "<td>Allowed to spend money on candy?</td>";
+            $finances = $finances . "<td>$allowed_candy</td>";
+            $finances = $finances . "</tr>";
+        }
+        $finances = $finances . "</table";
+        
+    }
+    return <<<PAGE
+    <h4>My Finances</h4>
+    $finances
+PAGE;
+
+}
+
 function showDashboard() {
     $script = $_SERVER["PHP_SELF"];
     $username = $_SESSION["username"];
@@ -332,6 +429,7 @@ function showDashboard() {
     $childrenClass = "";
     $accountClass = "";
     $pickupClass = "";
+    $financesClass = "";
     $information = "";
     if ($selectedPage == 0) {
         $childrenClass = "selected";
@@ -342,6 +440,9 @@ function showDashboard() {
     } elseif ($selectedPage == 2) {
         $pickupClass = "selected";
         $information = getPickupPage();
+    } elseif ($selectedPage == 3) {
+        $financesClass = "selected";
+        $information = getFinancesPage();
     } else {
         $_SESSION["selectedPage"] = 0;
         showDashboard();
@@ -389,6 +490,7 @@ function showDashboard() {
 <input class="optionBtn $childrenClass" type="submit" name="childrenBtn" id="childrenBtn" value="My Children" ><br>
 <input class="optionBtn $accountClass" type="submit" name="accountSettingsBtn" id="accountSettingsBtn" value="My Account"><br>
 <input class="optionBtn $pickupClass" type="submit" name="pickupBtn" id="pickupBtn" value="Approved Pickups"><br>
+<input class="optionBtn $financesClass" type="submit" name="financesBtn" id="financesBtn" value="My Finances"><br>
 <input class="optionBtn" type="submit" name="logoutBtn" id="logoutBtn" value="Logout">
 </div>
 <div class="information">
