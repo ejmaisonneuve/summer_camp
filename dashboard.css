@@ -1,0 +1,159 @@
+.content {
+    font-size: 22px;
+    display: inline-block;
+}
+body{
+    text-align: center;
+}
+
+h1 {
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 100;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  background-color: #00aae9;
+  padding: 40px 0;
+}
+
+h2 {
+    font-size: 64px;
+}
+
+.optionBtn {
+    font-family: Signika, sans-serif;
+    font-size: 32px;
+    width: 300px;
+    background-color: white;
+    outline: none;
+    border: 0px;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 16px;
+}
+
+.optionBtn:hover {
+    background-color: white;
+    border-bottom: 2px solid #00aae9;
+}
+
+#greeting {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#greeting-subtitle {
+    color: #bbbbbb;
+    margin-bottom: 70px;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.selected {
+    border-color: #00aae9 !important;
+    font-weight: bold;
+}
+
+.options {
+    float: left;
+}
+
+.information {
+    float: left;
+    text-align: center;
+    margin: 0px;
+    margin-left: 100px;
+    padding: 0px;
+    margin-bottom: 200px;
+    width: 600px;
+}
+
+h4 {
+    font-size: 36px;
+    margin: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
+    border-bottom: 2px solid gray;
+    padding-bottom: 4px;
+}
+
+.accountInput {
+    height: 32px;
+    width: 200px;
+    font-size: 24px;
+    font-family: Signika, sans-serif;
+    padding: 4px;
+}
+
+.accountTable td {
+    text-align: right;
+}
+
+.accountButton {
+    background-color: white;
+    border: none;
+    font-family: Signika, sans-serif;
+    font-size: 32px;
+    border-bottom: 2px solid lightgray;
+    outline: none;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+.childBtn {
+    width: 400px;
+    font-family: Signika, sans-serif;
+    font-size: 32px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 20px;
+}
+
+.childBtn:hover {
+    border-color: #00aae9;
+}
+
+.accountButton:hover {
+    border-color: #00aae9;
+}
+
+h5 {
+    font-size: 28px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+.accountTable td {
+    padding: 16px;
+    font-size: 28px;
+}
+
+.notification {
+    color: #00aae9;
+    margin: 16px;
+}
+
+.childTable {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    border-collapse: collapse;
+    color: #444;
+}
+
+.childTable td {
+    margin: 0;
+    padding: 4px;
+    border: 2px solid gray;
+}
+
+.childTable tr {
+    margin: 0;
+}
