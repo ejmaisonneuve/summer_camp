@@ -45,7 +45,7 @@
         <td><div>Child's Name</div><input type = "text" name="child_name" placeholder="Jonathan Nelson Doe" required/></td>
         <td><div>Nickname</div><input type = "text" name="nickname" placeholder="Jonny"/></td>
         <td><div>Sex</div><input type = "text" name='sex' placeholder="Male" required/></td>
-        <td><div>Date of Birth</div><input type = "text" name='date_of_birth' placeholder="MM/DD/YYYY" required/></td>
+        <td><div>Date of Birth</div><input id='dob' type = "text" name='date_of_birth' placeholder="MM/DD/YYYY" required/></td>
       </tr>
       <tr>
         <td><div>Home Phone</div><input id = "Home" class = "phones" type = "text" name='home_phone' placeholder="(123) 456-7890"></td>
@@ -115,7 +115,7 @@
       <tr class = "pick_up_row">
         <td colspan="2"><div>Name</div><input id="prev_name" class = "take_2" type = "text" name='pickup_name_1' placeholder="Edith Anne Doe"/></td>
         <td><div>Relationship</div><input id='prev_rel' type = "text" name='pickup_relationship_1' placeholder="Grandmother" /></td>
-        <td><div>Phone</div><input type = "text" name='pickup_phone_1' placeholder="(123) 456-7890" /></td>
+        <td><div>Phone</div><input class='phones' id='prev_phone' type = "text" name='pickup_phone_1' placeholder="(123) 456-7890" /></td>
       </tr>
       <tr class = "pick_up_row">
         <td colspan="2"><div>Address</div><input id = "prev_address" class = "take_2" type = "text" name='pickup_address_1' placeholder="1111 Left Lane, Spring TX, 77388"/></td>
@@ -132,7 +132,7 @@
       <tr>
         <td><div>Doctor Name</div><input type = "text" name='doctor_name' placeholder="Dr. James Anderson" required /></td>
         <td><div>Address</div><input class = "take_2" type = "text" name='doctor_address' placeholder="1111 Left Lane, Spring TX, 77388"  required/></td>
-        <td><div>Phone</div><input type = "text" name='doctor_phone' placeholder="(123) 456-7890" required/></td>
+        <td><div>Phone</div><input class='phones'type = "text" name='doctor_phone' placeholder="(123) 456-7890" required/></td>
       </tr>
       <tr>
         <td class = "extra_text" colspan="4">*Submition of this form serves as a medical authorization release.</td>

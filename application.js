@@ -46,7 +46,8 @@ function add_pickup(item) {
   var prev_name = document.getElementById("prev_name").value;
   var prev_address = document.getElementById("prev_address").value;
   var prev_rel = document.getElementById("prev_rel").value;
-  if(prev_name.length == 0 || prev_address.length == 0 || prev_rel.length == 0) {
+  var prev_phone = document.getElementById("prev_phone").value;
+  if(prev_name.length == 0 || prev_address.length == 0 || prev_rel.length == 0 || prev_phone.length == 0) {
     window.alert("Please fill out current person's information before adding another person.");
     return;
   }
@@ -58,11 +59,15 @@ function add_pickup(item) {
   new_input.childNodes[1].id = "prev_name";
   new_row.appendChild(new_input);
   new_input = create_input(item, "Relationship", "Grandmother", "1", "pickup_relationship_"+new_num);
-  //document.getElementById("prev_rel").id = "";
-  //new_input.childNodes[1].id = "prev_rel";
+  document.getElementById("prev_rel").id = "";
+  new_input.childNodes[1].id = "prev_rel";
   new_row.appendChild(new_input);
   new_input = create_input(item, "Phone", "(123) 456-7890", "1", "pickup_phone_"+new_num);
+  document.getElementById("prev_phone").id = "";
+  new_input.childNodes[1].id = "prev_phone";
+  new_input.childNodes[1].className = "phones";
   var new_helper = document.createElement("input");
+  new_input.childNodes[1].id = "prev_rel";
   new_helper.type = 'hidden';
   new_helper.name = new_num;
   new_helper.id = 'pickup_helper';
@@ -110,6 +115,7 @@ function create_input(item, title, ph, span, name) {
 
 function check_info() {
   var problems = "";
+  problems += check_dob();
   problems += check_phones();
   problems += check_parent();
   problems += check_sibling_info();
@@ -125,8 +131,14 @@ function check_info() {
 function check_pickup() {
   var name = document.getElementById("prev_name").value;
   var add = document.getElementById("prev_address").value;
-  if(name.length > 0 && add.length == 0) {
-    return "Please fill out addresses for the people who you would like to pick up your child.";
+  var rel = document.getElementById("prev_rel").value;
+  var phone = document.getElementById("prev_phone").value;
+  var any_filled = name.length > 0 || rel.length > 0 || add.length > 0 || phone.length > 0;
+  var all_filled = name.length > 0 && rel.length > 0 && add.length > 0 && phone.length
+ > 0;
+
+  if(any_filled && !all_filled) {
+    return "Please fill out all infomration for the people who you would like to pick up your child.";
   }
   return "";
 }
@@ -190,3 +202,15 @@ function check_sibling_info() {
   }
   return "";
 }
+
+function check_dob() {
+  var dob = document.getElementById("dob").value;
+  var re = /\d\d\/\d\d\/\d\d\d\d/;
+  if(re.test(dob) && dob.length == 10) {
+    return "";
+  }
+  else {
+    return "Make sure date of birth is in DD/MM/YYYY format. \n";
+  }
+}
+
