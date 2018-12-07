@@ -164,6 +164,8 @@ textarea {
   margin: 5px;
   width: 700px;
   height: 80px;
+  font-size: 13px;
+  padding-top: 10px;
 }
 
 .choices {
@@ -211,3 +213,7 @@ a:active {
   color: #0080af;
 }
 
+#alert {
+  text-align: center;
+  font-size: 20px;
+}

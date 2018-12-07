@@ -99,11 +99,6 @@ foreach($_POST as $name => $value) {
   }
 }
 
-print_r($name_array);
-print_r($relation_array);
-print_r($phone_array);
-print_r($address_array);
-
 $table = "pickup";
 for($i = 0; $i < sizeof($name_array); $i++) {
   $name = $name_array[$i];
@@ -117,6 +112,49 @@ for($i = 0; $i < sizeof($name_array); $i++) {
   mysqli_stmt_close($stmt);
 }
 
-
-
 ?>
+
+<!DOCTYPE html>
+
+
+<html lang = "en">
+
+<head>
+  <meta charset = "UTF-8" />
+  <title>School in the Pines Summer Camp</title>
+  <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./navbar.css" media = "all" />
+  <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./application.css" media = "all" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <a href="./home.html">
+  <img id="logo" src = "./logo.png" alt = "sitp logo"/>
+  </a>
+
+  <div class="navbar">
+    <a class="no-drop" href="./about.html">About Us</a>
+    <a class="no-drop" href="./nutrition.html">Nutrition</a>
+  <div class="dropdown">
+    <button class="dropbtn">Forms
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./application.html">Application</a>
+      <a href="./policies_fees.pdf">Policies & Fees</a>
+      <a class="bottom-dropdown" href="./field_trips.html">Field Trip Waivers</a>
+    </div>
+  </div>
+  <a class="no-drop" href="./contact_page.html">Contact Us</a>
+  <a class="no-drop" href="./login.php">Log In</a>
+  </div>
+
+  <h1 id = "top">School in the Pines Summer Camp 2019 Schooler Application</h1>
+  <p id='alert'>Thank you for filling out your application, we will be in contact with you shortly!</p>
+</body>
+</html>
+
+

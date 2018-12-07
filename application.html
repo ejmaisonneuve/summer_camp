@@ -39,6 +39,7 @@
   <h1 id = "top">School in the Pines Summer Camp 2019 Schooler Application</h1>
   <p id='print'>*You can also print our <a href='./application.pdf'>application</a></p>
   <form method="POST" action="./account_signup.php">
+    <tbody id='app_body'>
     <table id = "app_fam" >
       <caption>Family Information</caption>
       <tr>
@@ -137,6 +138,7 @@
       <tr>
         <td class = "extra_text" colspan="4">*Submition of this form serves as a medical authorization release.</td>
       </tr>
+    </tbody>
     </table>
 
     <table id ="app_sch">
@@ -145,7 +147,7 @@
         <td colspan="4"><div>Describe your child's personality (shy, outgoing, laid back, etc.):</div><input type="text" class="take_4" name='child_personality' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textareaname='special_behavior' required></textarea></td>
+        <td colspan="4"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textarea name='special_behavior' required></textarea></td>
       </tr>
       <tr>
         <td colspan="4"><div>Please list any health problems (n/a if none):</div><input type="text" class="take_4" name='health_problems' required/></td>

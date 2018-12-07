@@ -97,6 +97,7 @@ function onAccountUpdate($username, $password) {
     $result -> free();
     mysqli_close($connect);
 
+
 }
 
 function updateChildren() {

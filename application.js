@@ -54,6 +54,7 @@ function add_pickup(item) {
 
   var table = document.getElementById("app_fam");
   var new_row = document.createElement("tr");
+  new_row.className = "pick_up_row";
   var new_input = create_input(item, "Name", "Edith Anne Doe", "2", "pickup_name_"+new_num);
   document.getElementById("prev_name").id = "";
   new_input.childNodes[1].id = "prev_name";
@@ -67,7 +68,6 @@ function add_pickup(item) {
   new_input.childNodes[1].id = "prev_phone";
   new_input.childNodes[1].className = "phones";
   var new_helper = document.createElement("input");
-  new_input.childNodes[1].id = "prev_rel";
   new_helper.type = 'hidden';
   new_helper.name = new_num;
   new_helper.id = 'pickup_helper';
@@ -76,6 +76,7 @@ function add_pickup(item) {
   table.appendChild(new_row);
 
   var new_row = document.createElement("tr");
+  new_row.className = "pick_up_row";
   new_input = create_input(item, "Address", "1111 Left Lane, Spring, TX, 77388", "2", "pickup_address_"+new_num);
   document.getElementById("prev_address").id = "";
   new_input.childNodes[1].id = "prev_address";
@@ -158,19 +159,12 @@ function check_phones() {
   var bad_nums = [];
   var ans = "";
 
-  for(i = 0; i < phone_nums.length; i++) {
-    if(phone_nums[i].value == "") {
-      count += 1;
-    }
-  }
-  if(count == 3) {
-    return "Please fill out at least one personal phone number (home/cell) \n";
-  }
-
-
   var exp = /\(*[0-9]{3}\)*\s*-*\s*[0-9]{3}\s*-*\s*[0-9]{4}/
   for(i = 0; i < phone_nums.length; i++) {
-    if(!exp.test(phone_nums[i].value) && phone_nums[i].value.length > 0) {
+    var phone_text = phone_nums[i].value;
+    phone_text = phone_text.trim();
+    phone_text = phone_text.toLowerCase();
+    if(!exp.test(phone_nums[i].value) && phone_nums[i].value.length > 0 && phone_text != "n/a") {
       bad_nums.push(phone_nums[i].id);
     }
   }
