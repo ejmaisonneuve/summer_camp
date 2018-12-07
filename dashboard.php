@@ -31,7 +31,7 @@ function getPickupPage() {
     if (empty($pickups)) {
         $pickupText = "It seems like we don't have anyone approved to pick your children up";
     } else {
-        $pickupText = "<table class='childTable'><tr><td>Name</td><td>Relationship</td><td>Phone</td><td>Address</td></tr>";
+        $pickupText = "<table class='childTable'><tr><td><strong>Name</strong></td><td><strong>Relationship</strong></td><td><strong>Phone</strong></td><td><strong>Address</strong></td></tr>";
         foreach ($pickups as $key => $value) {
             $relationship = $value[0];
             $name = $value[1];
@@ -253,7 +253,7 @@ if (isset($_SESSION["selectedChild"])) {
     if (empty($behaviorReports)) {
         $behavior = "It looks like " . $childName . " has been doing great!";
     } else {
-        $behavior = "<table class='childTable'><tr><td>Date</td><td>Report</td></tr>";
+        $behavior = "<table class='childTable'><tr><td><strong>Date</strong></td><td><strong>Report</strong></td></tr>";
         foreach ($behaviorReports as $key=>$value) {
             $date = $value[0];
             $report = $value[1];
@@ -268,7 +268,7 @@ if (isset($_SESSION["selectedChild"])) {
     if (empty($fieldTripWaivers)) {
         $fieldtrip = "It looks like nothing's here...";
     } else {
-        $fieldtrip = "<table class='childTable'><tr><td>Field Trip</td><td>Date</td><td>Waiver Status</td></tr>";
+        $fieldtrip = "<table class='childTable'><tr><td><strong>Field Trip</strong></td><td><strong>Date</strong></td><td><strong>Waiver Status</strong></td></tr>";
         foreach ($fieldTripWaivers as $key=>$value) {
             $urban = $value[0];
             $altitude = $value[1];
@@ -391,25 +391,35 @@ function getFinancesPage() {
             $lunchText = "\$$lunch";
 
             $finances = $finances . "<tr>";
-            $finances = $finances . "<td>Weekly Tuition Due</td>";
+            $finances = $finances . "<td><strong>";
+            $finances = $finances . "Weekly Tuition Due";
+            $finances = $finances . "</strong></td>";
             $finances = $finances . "<td>$tuitionText</td>";
             $finances = $finances . "</tr>";
             $finances = $finances . "<tr>";
-            $finances = $finances . "<td>Summer Registration Fee</td>";
+            $finances = $finances . "<td><strong>";
+            $finances = $finances . "Summer Registration Fee";
+            $finances = $finances . "</strong></td>";
             $finances = $finances . "<td>$registrationText</td>";
             $finances = $finances . "</tr>";
             $finances = $finances . "<tr>";
-            $finances = $finances . "<td>Forest Oaks Swim Fee</td>";
+            $finances = $finances . "<td><strong>";
+            $finances = $finances . "Forest Oaks Swim Fee";
+            $finances = $finances . "</strong></td>";
             $finances = $finances . "<td>$swimText</td>";
             $finances = $finances . "</tr>";
             $finances = $finances . "<tr>";
-            $finances = $finances . "<td>Lunch & Candy Account Balance</td>";
+            $finances = $finances . "<td><strong>";
+            $finances = $finances . "Lunch & Candy Account Balance";
+            $finances = $finances . "</strong></td>";
             $finances = $finances . "<td>$lunchText</td>";
-            $finances = $finances . "</tr>";
+            $finances = $finances . "</tr></td>";
             $finances = $finances . "<tr>";
-            $finances = $finances . "<td>Allowed to spend money on candy?</td>";
+            $finances = $finances . "<td><strong>";
+            $finances = $finances . "Allowed to spend money on candy?";
+            $finances = $finances . "</strong></td>";
             $finances = $finances . "<td>$allowed_candy</td>";
-            $finances = $finances . "</tr>";
+            $finances = $finances . "</tr></td>";
         }
         $finances = $finances . "</table";
         

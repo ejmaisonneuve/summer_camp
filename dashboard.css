@@ -113,6 +113,7 @@ ul {
     border: none;
     border-bottom: 2px solid lightgray;
     margin-bottom: 20px;
+    background-color: white;
 }
 
 .childBtn:hover {
