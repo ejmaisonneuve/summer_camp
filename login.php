@@ -17,7 +17,7 @@ if (isset($_SESSION["username"])) {
     showDashboard();
     
   } else {
-    echo "incorrect username or password";
+    onIncorrectLogin();
   }
 } else {
 
@@ -25,7 +25,12 @@ if (isset($_SESSION["username"])) {
     $username = $_COOKIE["username"];
   }
 
-  showLoginPage($username);
+  showLoginPage($username, "");
+}
+
+function onIncorrectLogin($username) {
+  $notification = "<span class='notification'>Incorrect username or password</span>";
+  showLoginPage($username, $notification);
 }
 
 function showDashboard() {
@@ -33,7 +38,7 @@ function showDashboard() {
   exit();
 }
 
-function showLoginPage($username) {
+function showLoginPage($username, $notification) {
   $script = $_SERVER["PHP_SELF"];
 print <<<LOGIN
 <html lang = "en">
@@ -73,6 +78,7 @@ print <<<LOGIN
   <br>
   <br>
   <h1>Login</h1>
+  $notification
   <form id = "textForm" method = "post" action = "$script" >
     <ul>
       <li><input class = "inputs" type = "text" name = "userName" id = "userName" placeholder="Username" value="$username" required/></li>

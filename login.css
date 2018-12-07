@@ -21,6 +21,7 @@ ul {
   padding-bottom: 10px;
   font-family: Signika, sans-serif;
   font-size: 20px;
+  outline: none;
 }
 
 ::placeholder {
@@ -31,7 +32,7 @@ ul {
 }
 
 .inputs:focus {
-  border-bottom: 2px solid #ff6700;
+  border-bottom: 2px solid #00aae9;
   color: black;
   font-family: Signika, sans-serif;
   font-size: 20px;
@@ -43,6 +44,7 @@ ul {
   margin-right: auto;
   width: 190px;
   margin-top: 20px;
+  outline: none;
 }
 
 #submit {
@@ -53,19 +55,23 @@ ul {
   height: 30px;
   width: 80px;
   border-radius: 30px;
-  background-color: #ff6700;
+  background-color: #00aae9;
   border: 0;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
   font-family: Signika, sans-serif;
+  outline: none;
 }
 
 .button:hover {
-  background-color: #f46100;
+  background-color: #11bbfa;
 }
 
 .button:active {
-  background-color: #e85e00;
+  background-color: #0099d8;
 }
 
+.notification {
+  color: #00aae9;
+}
