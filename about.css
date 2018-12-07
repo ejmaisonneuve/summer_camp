@@ -3,8 +3,19 @@ h1 {
     text-align: center;
 }
 
+body {
+    text-align: center;
+}
+
+.video {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
 #content {
     padding: 0px 400px;
+    text-align: center;
 }
 
 .titles {
@@ -82,22 +93,9 @@ h2 {
 
 .staff-description {
     display: none;
+    text-align: left;
 }
 
 .gray-background {
     background-color: #f7f7f7;
-}
-
-#heb_comm {
-  margin-top: 100px;
-  color: #000;
-  background-color: transparent;
-  margin-bottom: 0;
-}
-
-#video {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: -15px;
 }

@@ -1,13 +1,21 @@
 <?php
+
+session_start();
 $username = "";
 
-if (isset($_POST["userName"]) && isset($_POST["pass"])) {
+if (isset($_SESSION["username"])) {
+  showDashboard();
+} elseif (isset($_POST["userName"]) && isset($_POST["pass"])) {
   $username = $_POST["userName"];
   $password = $_POST["pass"];
   if (validateUser($username, $password)) {
-    session_start();
+    if (isset($_POST["rememberMe"])) {
+      $username = $_POST["userName"];
+      setcookie("username", $username, time() + 60 * 5);
+    }
     $_SESSION["username"] = $username;
     showDashboard();
+    
   } else {
     echo "incorrect username or password";
   }
@@ -15,11 +23,6 @@ if (isset($_POST["userName"]) && isset($_POST["pass"])) {
 
   if (isset($_COOKIE["username"])) {
     $username = $_COOKIE["username"];
-  }
-
-  if (isset($_POST["rememberMe"])) {
-    $username = $_POST["userName"];
-    setcookie("username", $username);
   }
 
   showLoginPage($username);
@@ -42,15 +45,13 @@ print <<<LOGIN
   <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel="stylesheet">
 </head>
 <body>
-
-
-  <a href='./home.html'><img id="logo" src = "./logo.png" alt = "sitp logo"/>
+  <a href="./home.html">
+  <img id="logo" src = "./logo.png" alt = "sitp logo"/>
   </a>
 
   <div class="navbar">
   <a class="no-drop" href="./about.html">About Us</a>
   <a class="no-drop" href="./nutrition.html">Nutrition</a>
-
   <div class="dropdown">
     <button class="dropbtn">Forms
       <i class="fa fa-caret-down"></i>
@@ -64,8 +65,14 @@ print <<<LOGIN
   <a class="no-drop" href="./contact_page.html">Contact Us</a>
   <a class="no-drop" href="./login.php">Log In</a>
   </div>
-
- <h1>Login</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Login</h1>
   <form id = "textForm" method = "post" action = "$script" >
     <ul>
       <li><input class = "inputs" type = "text" name = "userName" id = "userName" placeholder="Username" value="$username" required/></li>
@@ -91,12 +98,36 @@ function validateUser($username, $password) {
     }
 }
 
+function createUser($username, $password, $home_phone, $mailing_address, $subdivision) {
+    $hash = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+    
+    $host = "localhost";
+    $user = "root";
+    $pwd = "root";
+    $dbs = "summer_camp";
+    $port = "8889";
+    $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
+
+    if (empty($connect))
+    {
+      die("mysqli_connect failed: " . mysqli_connect_error());
+    }
+
+    $table = "users";
+
+    $stmt = mysqli_prepare ($connect, "INSERT INTO $table VALUES (?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param ($stmt, 'sssss', $username, $hash, $home_phone, $mailing_address, $subdivision);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($connect);
+
+}
 function getPasswordHash($username) {
-    $host = "fall-2018.cs.utexas.edu";
-    $user = "cs329e_mitra_eshresth";
-    $pwd = "strife!Morgue6Tying";
-    $dbs = "cs329e_mitra_eshresth";
-    $port = "3306";
+    $host = "localhost";
+    $user = "root";
+    $pwd = "root";
+    $dbs = "summer_camp";
+    $port = "8889";
     $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
 
     if (empty($connect))
