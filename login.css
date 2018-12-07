@@ -1,16 +1,11 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: Signika, sans-serif;
   text-align: center;
 }
 
 h1 {
   text-align: center;
   font-size: 40px;
-  clear: both;
-  font-family: 'Signika', sans-serif;
-  background-color: #ff6700;
-  padding: 40px 0;
-  color: white;
 }
 
 ul {
@@ -24,21 +19,21 @@ ul {
   width: 300px;
   padding-top: 20px;
   padding-bottom: 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: Signika, sans-serif;
   font-size: 20px;
 }
 
 ::placeholder {
   opacity: 1;
   color: #888;
-  font-family: 'Lato', sans-serif;
+  font-family: Signika, sans-serif;
   font-size: 20px;
 }
 
 .inputs:focus {
   border-bottom: 2px solid #ff6700;
   color: black;
-  font-family: 'Lato', sans-serif;
+  font-family: Signika, sans-serif;
   font-size: 20px;
 }
 
@@ -63,7 +58,7 @@ ul {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  font-family: 'Lato', sans-serif;
+  font-family: Signika, sans-serif;
 }
 
 .button:hover {
