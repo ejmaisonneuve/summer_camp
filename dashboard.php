@@ -42,7 +42,7 @@ function getPickupPage() {
         $pickupText = $pickupText . "</table>";
     }
     return <<<PAGE
-<h4>Your approved pickups</h4>
+<h4>My Approved Pickups</h4>
 $pickupText
 PAGE;
 }
@@ -487,10 +487,10 @@ function showDashboard() {
 <h3 id="greeting-subtitle">$greeting</h3>
 <form id="dashboardForm" action="$script" method="post">
 <div class="options">
-<input class="optionBtn $childrenClass" type="submit" name="childrenBtn" id="childrenBtn" value="My Children" ><br>
-<input class="optionBtn $accountClass" type="submit" name="accountSettingsBtn" id="accountSettingsBtn" value="My Account"><br>
+<input class="optionBtn $childrenClass" type="submit" name="childrenBtn" id="childrenBtn" value="Children" ><br>
+<input class="optionBtn $accountClass" type="submit" name="accountSettingsBtn" id="accountSettingsBtn" value="Account"><br>
 <input class="optionBtn $pickupClass" type="submit" name="pickupBtn" id="pickupBtn" value="Approved Pickups"><br>
-<input class="optionBtn $financesClass" type="submit" name="financesBtn" id="financesBtn" value="My Finances"><br>
+<input class="optionBtn $financesClass" type="submit" name="financesBtn" id="financesBtn" value="Finances"><br>
 <input class="optionBtn" type="submit" name="logoutBtn" id="logoutBtn" value="Logout">
 </div>
 <div class="information">
