@@ -103,8 +103,6 @@ function onAccountUpdate($username, $password) {
         mysqli_stmt_close($stmt);
         $_SESSION["username"] = $username;
     }
-
-    $result -> free();
     mysqli_close($connect);
 
 
