@@ -11,7 +11,7 @@ if (isset($_SESSION["username"])) {
   if (validateUser($username, $password)) {
     if (isset($_POST["rememberMe"])) {
       $username = $_POST["userName"];
-      setcookie("username", $username, time() + 60 * 5);
+      setcookie("username", $username, time() + 86400 * 30);
     }
     $_SESSION["username"] = $username;
     showDashboard();
