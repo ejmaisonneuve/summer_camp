@@ -6,7 +6,6 @@ body {
 .titles {
   padding-top: 6.5rem;
   width: 100%;
-  color:
 }
 
 #contact-title {
@@ -139,9 +138,6 @@ option {
 }
 
 .button {
-    /*padding: 10px;
-    margin-left: 10rem;*/
-    border: 2px solid #00aae9;
     border-radius: 10px;
     color: white;
     background-color: #00aae9;

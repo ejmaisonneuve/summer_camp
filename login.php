@@ -41,6 +41,7 @@ function showDashboard() {
 function showLoginPage($username, $notification) {
   $script = $_SERVER["PHP_SELF"];
 print <<<LOGIN
+<!DOCTYPE html>
 <html lang = "en">
 <head>
   <meta charset = "UTF-8" />
