@@ -76,11 +76,11 @@
     </ul>
 
   <div id="contact-form">
-    <form onsubmit='validate();' method="POST" action="./contact_page.php">
+    <form onsubmit='return validate();' method="POST" action="./contact_page.php">
       <ul class = "form-list1">
-        <li><input placeholder="Full Name" name="name" id="name" type="text" class="client-contact-text" /></li>
-        <li><input placeholder="E-mail Address" name="email" id="email" type="text" class="client-contact-text" /></li>
-        <li><input placeholder="Phone Number" name="phone" id="phone" type="text" class="client-contact-text" /></li>
+        <li><input placeholder="Full Name" name="name" id="name" type="text" class="client-contact-text" required></li>
+        <li><input placeholder="E-mail Address" name="email" id="email" type="text" class="client-contact-text" required/></li>
+        <li><input placeholder="Phone Number" name="phone" id="phone" type="text" class="client-contact-text" required/></li>
       </ul>
       <ul class = "form-list2">
         <li><select name='subject' required>
@@ -99,20 +99,12 @@
           </select></li>
         <li><textarea name = "message" id = "comments" rows = "7" cols = "50" placeholder = "Message"></textarea></li>
       </ul>
-        <!--table id="buttons-form">
-            <tr>
-                <td-->
-                <div class = "buttons">
-                    <input type="submit" value="Submit" class="button" id = "button1">
-                <!--/td>
-                <td-->
-                    <input type="reset" value="Reset" class="button" id = "button2">
-                  </div>
-                <!--/td>
-            </tr>
-        </table>
-    </form-->
-</div>
+      <div class = "buttons">
+        <input type="submit" value="Submit" class="button" id = "button1">
+        <input type="reset" value="Reset" class="button" id = "button2">
+      </div>
+    </form>
+  </div>
 
-  </body>
+</body>
 </html>
