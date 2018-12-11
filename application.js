@@ -52,6 +52,10 @@ function add_pickup(item) {
     return;
   }
 
+  document.getElementById("prev_name").required = true;
+  document.getElementById("prev_address").required = true;
+  document.getElementById("prev_rel").required = true;
+  document.getElementById("prev_phone").required = true;
   var table = document.getElementById("app_fam");
   var new_row = document.createElement("tr");
   new_row.className = "pick_up_row";
@@ -121,12 +125,32 @@ function check_info() {
   problems += check_parent();
   problems += check_sibling_info();
   problems += check_pickup();
+  problems += check_emails();
 
   if(problems.length > 0) {
     window.alert(problems);
     return false;
   }
   return true;
+}
+
+function check_emails() {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var f_email = document.getElementById("femail").value;
+  var m_email = document.getElementById("memail").value;
+  
+  if(!re.test(f_email) && !re.test(m_email)) {
+    return "Make sure both parents' emails are formatted email@email.com";
+  }
+  else if(!re.test(f_email)) {
+    return "Make sure father's email is formatted email@email.com";
+  }
+  else if(!re.test(m_email)) {
+    return "Make sure mother's email is formatted email@email.com";
+  }
+  else {
+    return "";
+  }
 }
 
 function check_pickup() {
