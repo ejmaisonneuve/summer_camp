@@ -149,6 +149,11 @@ option {
     font-size: 1rem;
   }
 
+#phone_number {
+  text-decoration: underline;
+  color: #00aae9;
+}
+
 .buttons {
   text-align: center;
   width: 100%;

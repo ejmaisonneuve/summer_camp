@@ -9,6 +9,7 @@
   <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./home.css" media = "all" />
   <link rel = "stylesheet" title = "basic style" type = "text/css" href = "./contact_page.css" media = "all" />
   <link href="https://fonts.googleapis.com/css?family=Signika:400,700" rel="stylesheet">
+  <script src = './contact_page.js'></script>
 </head>
 
 <body>
@@ -44,11 +45,6 @@
       hesitate to contact us through the form or with the information below.</h2>
   </div>
 
-  <!--div class = "blurb">
-    <p>School in the Pines is a family owned company for over 30 years and our summer program has been going on for
-      over 25 years. If you have any questions about our program or about working for us this summer, please do not
-      hesitate to contact us through the form or with the information below.</p-->
-
   <div class = "contact-info">
     <ul>
       <li class = "infos">Postal Address
@@ -59,7 +55,7 @@
       </li>
       <li class = "infos">Phone & Email
         <ul>
-          <li>(281) 288-6402</li>
+          <li id='phone_number'>(281) 288-6402</li>
           <li><a href = "mailto:ejmaisonneuve@gmail.com" target = "top">sitp84@sbcglobal.net</a></li>
         </ul>
       </li>
@@ -80,7 +76,7 @@
     </ul>
 
   <div id="contact-form">
-    <form method="POST" action="./contact_page.php">
+    <form onsubmit='validate();' method="POST" action="./contact_page.php">
       <ul class = "form-list1">
         <li><input placeholder="Full Name" name="name" id="name" type="text" class="client-contact-text" /></li>
         <li><input placeholder="E-mail Address" name="email" id="email" type="text" class="client-contact-text" /></li>
