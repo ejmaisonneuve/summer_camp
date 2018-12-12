@@ -224,8 +224,10 @@ function showRandomGreeting() {
 function onInvalidAccess() {
     $script = $_SERVER["PHP_SELF"];
     print <<<INVALID
-<html>
+<!DOCTYPE html>
+<html lang='en'>
 <head>
+  <title>Dashboard</title>
 </head>
 <body>
 There seems to be something wrong. Click <a href="login.php">here</a> to go back to the login screen.

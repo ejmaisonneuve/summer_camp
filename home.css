@@ -19,10 +19,11 @@ body {
 
 #header-title {
 	position: absolute;
+        top: 280px;
 	margin-top: 120px;
 	width: 100%;
 	font-size: 4rem;
-	text-align: center
+	text-align: center;
 	margin: auto;
 	color: white;
 	z-index: 1;

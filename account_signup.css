@@ -67,9 +67,9 @@ ul {
 }
 
 .button:hover {
-  background-color: ;
+  background-color: #b70000;
 }
 
 .button:active {
-  background-color: ;
+  background-color: #7f0000;
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 //connect to database
 $host = "fall-2018.cs.utexas.edu";
 $user = "cs329e_mitra_eshresth";
@@ -15,7 +16,7 @@ if (empty($connect)) {
 //set values from POST
 $uname = $_POST["userName"];
 $upword = $_POST["pass"];
-$phone = $_POST["home_phone"];
+$phone = parse_phone_number($_POST["home_phone"]);
 $address = $_POST['mailing_address'];
 $subdivision = $_POST['subdivision'];
 
@@ -53,8 +54,8 @@ $name = $_POST['father_name'];
 $relationship = 'Father';
 $occupation = $_POST['father_occupation'];
 $employer = $_POST['father_employed_by'];
-$business_phone = $_POST['father_business_phone'];
-$cell_phone = $_POST['father_cell_phone'];
+$business_phone = parse_phone_number($_POST['father_business_phone']);
+$cell_phone = parse_phone_number($_POST['father_cell_phone']);
 $email = $_POST['father_email'];
 
 $stmt = mysqli_prepare ($connect, "INSERT INTO $table VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -68,8 +69,8 @@ $name = $_POST['mother_name'];
 $relationship = 'Mother';
 $occupation = $_POST['mother_occupation'];
 $employer = $_POST['mother_employed_by'];
-$business_phone = $_POST['mother_business_phone'];
-$cell_phone = $_POST['mother_cell_phone'];
+$business_phone = parse_phone_number($_POST['mother_business_phone']);
+$cell_phone = parse_phone_number($_POST['mother_cell_phone']);
 $email = $_POST['mother_email'];
 
 $stmt = mysqli_prepare ($connect, "INSERT INTO $table VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -91,7 +92,7 @@ foreach($_POST as $name => $value) {
       array_push($relation_array, $value);
     } 
     elseif(strpos($name, "phone") !== false) {     
-      array_push($phone_array, $value);
+      array_push($phone_array, parse_phone_number($value));
     }
     elseif(strpos($name, "address") !== false) {     
       array_push($address_array, $value);
@@ -110,6 +111,15 @@ for($i = 0; $i < sizeof($name_array); $i++) {
   mysqli_stmt_bind_param ($stmt, 'sssss', $uname, $name, $relationship, $phone, $address);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
+}
+
+function parse_phone_number($number) {
+  $number = str_replace("-", "", $number);
+  $number = str_replace("(", "", $number);
+  $number = str_replace(")", "", $number);
+  $number = str_replace(" ", "", $number);
+  $number = "(" . substr($number, 0, 3) . ")" .  substr($number, 3, 3) . "-" . substr($number, 6);
+  return $number;
 }
 
 ?>
@@ -156,5 +166,4 @@ for($i = 0; $i < sizeof($name_array); $i++) {
   <p id='alert'>Thank you for filling out your application, we will be in contact with you shortly!</p>
 </body>
 </html>
-
 

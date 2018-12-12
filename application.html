@@ -39,7 +39,6 @@
   <h1 id = "top">School in the Pines Summer Camp 2019 Schooler Application</h1>
   <p id='print'>*You can also print our <a href='./application.pdf'>application</a></p>
   <form method="POST" action="./account_signup.php">
-    <tbody id='app_body'>
     <table id = "app_fam" >
       <caption>Family Information</caption>
       <tr>
@@ -75,7 +74,7 @@
       <tr>
         <td><div>Business Phone</div><input type = "text" name='father_business_phone' placeholder="(123) 456-7890"/></td>
         <td><div>Cell Phone</div><input id="Father's" class = "phones" type = "text" name='father_cell_phone' placeholder="(123) 456-7890"/></td>
-        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text" name='father_email' placeholder="myemail@email.com"/></td>
+        <td colspan="2"><div>E-mail</div><input id='femail' class = "take_2" type = "text" name='father_email' placeholder="myemail@email.com"/></td>
       </tr>
       <tr>
         <td colspan="2"><div>Mother's Name</div><input id="mother" class = "take_2" type = "text" name='mother_name' placeholder="Diana Emily Doe"/></td>
@@ -85,10 +84,10 @@
       <tr>
         <td><div>Business Phone</div><input type = "text" name='mother_business_phone' placeholder="(123) 456-7890"/></td>
         <td><div>Cell Phone</div><input id="Mother's" class = "phones" type = "text" name='mother_cell_phone' placeholder="(123) 456-7890"/></td>
-        <td colspan="2"><div>E-mail</div><input class = "take_2" type = "text" name='mother_email' placeholder="myemail@email.com"/></td>
+        <td colspan="2"><div>E-mail</div><input id='memail' class = "take_2" type = "text" name='mother_email' placeholder="myemail@email.com"/></td>
       </tr>
       <tr>
-        <td><div>Number of Siblings:</div>
+        <td colspan=4><div>Number of Siblings:</div>
           <select id = "num_sib" name='number_of_siblings' onchange="show_rows();" required>
             <option value="" disabled selected hidden>select</option>
             <option value="0">0</option>
@@ -102,13 +101,13 @@
           </select>
         </td>
       </tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
-      <tr><td class = "sibling_row"></td><td class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
+      <tr><td class = "sibling_row"></td><td colspan='3' class = "sibling_row"></td></tr>
       <tr>
         <td class = "special_text" colspan="4">Please list persons approved to pick up your child (other than their parents). ONLY those listed will be able to
         pick up your child. Identification must be provided to front desk at pick up time. Phone number and address required.</td>
@@ -127,16 +126,16 @@
     <table id="app_med">
       <caption> Medical Information</caption>
       <tr>
-        <td class = "special_text" colspan="4">AUTHORIZATION FOR EMERGENCY MEDICAL CARE: If I cannot be reached to make arrangements for emergency medical care, I hereby authorize
+        <td class = "special_text" colspan="3">AUTHORIZATION FOR EMERGENCY MEDICAL CARE: If I cannot be reached to make arrangements for emergency medical care, I hereby authorize
         SCHOOL IN THE PINES to take my child to (or the nearest hospital):</td>
       </tr>
       <tr>
         <td><div>Doctor Name</div><input type = "text" name='doctor_name' placeholder="Dr. James Anderson" required /></td>
         <td><div>Address</div><input class = "take_2" type = "text" name='doctor_address' placeholder="1111 Left Lane, Spring TX, 77388"  required/></td>
-        <td><div>Phone</div><input class='phones'type = "text" name='doctor_phone' placeholder="(123) 456-7890" required/></td>
+        <td><div>Phone</div><input class='phones' type = "text" name='doctor_phone' placeholder="(123) 456-7890" required/></td>
       </tr>
       <tr>
-        <td class = "extra_text" colspan="4">*Submition of this form serves as a medical authorization release.</td>
+        <td class = "extra_text" colspan="3">*Submition of this form serves as a medical authorization release.</td>
       </tr>
     </tbody>
     </table>
@@ -144,39 +143,39 @@
     <table id ="app_sch">
       <caption>Schooler Information</caption>
       <tr>
-        <td colspan="4"><div>Describe your child's personality (shy, outgoing, laid back, etc.):</div><input type="text" class="take_4" name='child_personality' required/></td>
+        <td colspan="3"><div>Describe your child's personality (shy, outgoing, laid back, etc.):</div><input type="text" class="take_4" name='child_personality' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textarea name='special_behavior' required></textarea></td>
+        <td colspan="3"><div>Does your child have any special behavior problems, speech delays, etc.?</div><textarea name='special_behavior' required></textarea></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Please list any health problems (n/a if none):</div><input type="text" class="take_4" name='health_problems' required/></td>
+        <td colspan="3"><div>Please list any health problems (n/a if none):</div><input type="text" class="take_4" name='health_problems' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>List all dietary restrictions and allergies (n/a if none); Please be specefic:</div><input type="text" class="take_4" name='dietary_restrictions_and_allergies' required/></td>
+        <td colspan="3"><div>List all dietary restrictions and allergies (n/a if none); Please be specefic:</div><input type="text" class="take_4" name='dietary_restrictions_and_allergies' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Has your child recently gone through any major changes or been exposed to new situations (i.e divorce, move, serious accident or death in the family, etc.)?</div><input type="text" class="take_4" name='major_life_changes' required/></td>
+        <td colspan="3"><div>Has your child recently gone through any major changes or been exposed to new situations (i.e divorce, move, serious accident or death in the family, etc.)?</div><input type="text" class="take_4" name='major_life_changes' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Does your child have any special fears (dar, monsters, bugs, etc.)?</div><input type="text" class="take_4" name='special_fears' required /></td>
+        <td colspan="3"><div>Does your child have any special fears (dark, monsters, bugs, etc.)?</div><input type="text" class="take_4" name='special_fears' required /></td>
       </tr>
       <tr>
-        <td colspan="4"><div>Please help us understand your child's home situation (i.e. living with both parents, spending time alone with each parent, living with grandparent, etc.).
+        <td colspan="3"><div>Please help us understand your child's home situation (i.e. living with both parents, spending time alone with each parent, living with grandparent, etc.).
         This information helps us when we talk about Mother's day, Father's day, and families. If your child was adopted, you may share this information with us.</div><textarea name='home_situation' required></textarea></td>
       </tr>
       <tr>
-        <td colspan="4"><div>List your child's favorite characters, toys, super heroes, interests, etc.</div><input type="text" class="take_4" name='interests' required/></td>
+        <td colspan="3"><div>List your child's favorite characters, toys, super heroes, interests, etc.</div><input type="text" class="take_4" name='interests' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>We offer a short blessing before snacks and meals. If you would like, you may share your religious affiliation, church denomination, etc. This may
+        <td colspan="3"><div>We offer a short blessing before snacks and meals. If you would like, you may share your religious affiliation, church denomination, etc. This may
         help us as we celebrate holidays in the classroom.</div><input type="text" class="take_4" name='religion'/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>In the fall, many children from School in the Pines attend a <em>See You at the Pole</em> prayer rally (held at Lemm in the morning before school starts). Please let us know if your child may participate.</div><input type="text" class="take_4" name='see_you_at_the_pole'/></td>
+        <td colspan="3"><div>In the fall, many children from School in the Pines attend a <em>See You at the Pole</em> prayer rally (held at Lemm in the morning before school starts). Please let us know if your child may participate.</div><input type="text" class="take_4" name='see_you_at_the_pole'/></td>
       </tr>
       <tr>
-        <td colspan="4"><div>From time to time, we like to display photographs of the children in our classes and use photos for our school brochures or website. Please let us know if you agree to have your child photographed and
+        <td colspan="3"><div>From time to time, we like to display photographs of the children in our classes and use photos for our school brochures or website. Please let us know if you agree to have your child photographed and
         their photo use for these purposes</div></td>
       </tr>
       <tr>
@@ -185,23 +184,23 @@
         <td><div class = "need_space">Website:</div><div class="choices">Yes</div><input class ="r_b" type = "radio" name = "website_photos" value='yes' required/><div class="choices">No</div><input class ="r_b" type = "radio" name = "website_photos" value='no' required/></td>
       </tr>
       <tr>
-        <td colspan="4"><div id = "special_case">Please list after-school (Lemm) activities your child will partcipate in (or let us know as soon as your child has signed up):</div><input type="text" class="take_4" name='child_activities'/></td>
+        <td colspan="3"><div id = "special_case">Please list after-school (Lemm) activities your child will partcipate in (or let us know as soon as your child has signed up):</div><input type="text" class="take_4" name='child_activities'/></td>
       </tr>
     </table>
 
     <table id = "app_add">
       <caption>Additional Information</caption>
       <tr>
-        <td colspan="2"><div>School Most Recently Attended</div><input class = "take_2" type="text" name='most_recent_school' placeholder="XYZ Daycare" /></td>
+        <td><div>School Most Recently Attended</div><input class = "take_2" type="text" name='most_recent_school' placeholder="XYZ Daycare" /></td>
         <td colspan="2"><div>How did You Hear About Us?</div><input class = "take_2" type = "text" name='how_they_heard_about_us' placeholder="Friends, google ads, etc." required></td>
       </tr>
       <tr>
-        <td colspan="4"><div>My child attends Lemm Elementary (phone 832-484-6300) amd his/her immunization/vision/hearing records are on file there.</div></td>
+        <td colspan="3"><div>My child attends Lemm Elementary (phone 832-484-6300) amd his/her immunization/vision/hearing records are on file there.</div></td>
       </tr>
       <tr>
         <td><div>Yes:</div><input class ="r_b" type = "radio" value='yes' name = "records_at_lemm" required/></td>
         <td><div>No:</div><input class ="r_b" type = "radio" value='no' name = "records_at_lemm" required/></td>
-        <td colspan="2"><div>If not, list current elementary school here:</div><input type = "text" class="take_2" name='current_school'/></td>
+        <td><div>If not, list current elementary school here:</div><input type = "text" class="take_2" name='current_school'/></td>
       </tr>
     </table>
 

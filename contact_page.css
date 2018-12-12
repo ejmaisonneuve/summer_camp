@@ -6,7 +6,6 @@ body {
 .titles {
   padding-top: 6.5rem;
   width: 100%;
-  color:
 }
 
 #contact-title {
@@ -139,15 +138,17 @@ option {
 }
 
 .button {
-    /*padding: 10px;
-    margin-left: 10rem;*/
-    border: 2px solid #00aae9;
     border-radius: 10px;
     color: white;
     background-color: #00aae9;
     font-family: Signika, sans-serif;
     font-size: 1rem;
   }
+
+#phone_number {
+  text-decoration: underline;
+  color: #00aae9;
+}
 
 .buttons {
   text-align: center;
