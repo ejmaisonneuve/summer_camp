@@ -26,6 +26,18 @@ if (isset($username)) {
 }
 
 function getPickupPage() {
+
+    $notification = "";
+
+    if (isset($_POST["pickupSubmit"])) {
+        if ($_POST["pickupName"] != "" && $_POST["pickupRelation"] != "" && $_POST["pickupPhone"] != "" && $_POST["pickupAddress"] != "") {
+            onAddApprovedPickup($_POST["pickupName"], $_POST["pickupRelation"], $_POST["pickupPhone"], $_POST["pickupAddress"]);
+            $notification = "<span class='notification'>Approved Pickup added</span><br>";
+        } else {
+              $notification = "<span class='notification'>Make sure all of the fields are filled out and try again</span><br>";
+        }
+      }
+
     $pickups = getPickups($_SESSION["username"]);
     $pickupText = "";
     if (empty($pickups)) {
@@ -43,8 +55,57 @@ function getPickupPage() {
     }
     return <<<PAGE
 <h4>My Approved Pickups</h4>
+$notification
 $pickupText
+<br>
+<br>
+<h4>Add Approved Pickup</h4>
+<table class="inputTable">
+<tr>
+<td>Name</td>
+<td>Relationship</td>
+<td>Phone</td>
+<td>Address</td>
+</tr>
+<tr>
+<td><input name="pickupName" type="text" placeholder="John Smith" ></td>
+<td><input name="pickupRelation" type="text" placeholder="Father"></td>
+<td><input name="pickupPhone" type="text" placeholder="123-456-7890"></td>
+<td><input name="pickupAddress" type="text" placeholder="1 Road Drive"></td>
+</tr>
+</table>
+<br>
+<br>
+<input id="pickupSubmit" class="optionBtn" name="pickupSubmit" type="submit" value="Add Pickup">
 PAGE;
+}
+
+function onAddApprovedPickup($name, $relation, $phone, $address) {
+    // $name = mysqli_real_escape_string($name);
+    // $relation = mysqli_real_escape_string($relation);
+    // $phone = mysqli_real_escape_string($phone);
+    // $address = mysqli_real_escape_string($address);
+    $host = "fall-2018.cs.utexas.edu";
+    $user = "cs329e_mitra_eshresth";
+    $pwd = "strife!Morgue6Tying";
+    $dbs = "cs329e_mitra_eshresth";
+    $port = "3306";
+    $connect = mysqli_connect ($host, $user, $pwd, $dbs, $port);
+
+    if (empty($connect))
+    {
+      die("mysqli_connect failed: " . mysqli_connect_error());
+    }
+
+    $stmt = mysqli_prepare ($connect, "INSERT INTO pickup values (?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param ($stmt, 'sssss', $_SESSION["username"], $name, $relation, $phone, $address);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($connect);
+}
+
+function onRemoveApprovedPickup() {
+
 }
 
 function onAccountUpdate($username, $password) {

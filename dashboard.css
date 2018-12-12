@@ -158,3 +158,33 @@ h5 {
 .childTable tr {
     margin: 0;
 }
+
+.inputTable {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    border-collapse: collapse;
+    color: #444;
+}
+
+.inputTable td {
+    margin: 0;
+    padding: 0;
+    border: 2px solid gray;
+}
+
+.inputTable tr {
+    margin: 0;
+}
+
+.inputTable input {
+    font-family: Signika, sans-serif;
+    outline: none;
+    font-size: 24px;
+    color: #444;
+}
+
+.inputTable input[type="text"] {
+    width: 150px;
+}
