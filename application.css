@@ -66,11 +66,8 @@ select {
   margin: 5px;
 }
 
-.take_2 {
+input.take_2 {
   width: 330px;
-}
-
-.sibling_row {
 }
 
 .special_text {
@@ -149,7 +146,7 @@ table {
   margin-bottom: 20px;
 }
 
-.take_4 {
+input.take_4 {
   width: 700px;
 }
 
