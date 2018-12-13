@@ -39,7 +39,7 @@ div {
 }
 
 
-input {
+input:not(.r_b) {
   border: 1px solid #ddd;
   height: 40px;
   font-family: "Open Sans", sans-serif;
@@ -126,8 +126,6 @@ select {
 
 .r_b {
   position: absolute;
-  width: 5px;
-  height: 5px;
   margin-left: 50px;
   margin-top: -10px;
 }
