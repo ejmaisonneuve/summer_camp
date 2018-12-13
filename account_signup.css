@@ -73,3 +73,7 @@ ul {
 .button:active {
   background-color: #7f0000;
 }
+
+#alert {
+  color: red;
+}
