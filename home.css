@@ -203,10 +203,12 @@ body {
 
 .register a:hover {
 	background-color: #0099d8;
+	color: white;
 }
 
 .register a:active {
 	background-color: #0088c7;
+	color: white;
 }
 
 #footer {
