@@ -9,9 +9,9 @@ function validate () {
     var errors = "";
 
     //test username
-    var exp1 = /[^a-zA-Z\-]/;
+    var exp1 = /[^a-zA-Z0-9\-]/;
     if(exp1.test(user_name)) {
-      errors += "  -Family name must contain only letters and hyphens.\n";
+      errors += "  -Family name must contain only letters, numbers and hyphens.\n";
     }
 
     if(user_name[0] != user_name[0].toUpperCase()) {

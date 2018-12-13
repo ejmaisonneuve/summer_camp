@@ -72,7 +72,8 @@ print <<<HTML
 
   <form id = "textForm" method = "POST" action = "./account_create.php" onsubmit = "return validate();" >
     <ul>
-      <li><input id='userName' class = "inputs" type = "text" name = "userName" onchange='check_uname();' placeholder="Family Last Name (pick one if multiple)"/></li>
+      <li><input id='userName' class = "inputs" type = "text" name = "userName" onchange='check_uname();' placeholder="Username"/></li>
+      <div id='alert'></div>
       <li><input class = "inputs" type = "password" name = "pass" placeholder="Password"/></li>
       <li><input class = "inputs" type = "password" name = "rep_pass" placeholder="Retype your Password"/></li>
     </ul>
@@ -107,11 +108,12 @@ print <<<HTML
       if ((xhr.readyState == 4) && (xhr.status == 200)) {
         var response = xhr.responseText;
         if(response == 'true') {
-          window.alert("This username already exists");
+          document.getElementById("alert").innerHTML = "Username Already Exists";
           document.getElementById("submit").disabled = true;
         }
         else {
           document.getElementById("submit").disabled = false;
+          document.getElementById("alert").innerHTML = "";
         }
       }
     }
