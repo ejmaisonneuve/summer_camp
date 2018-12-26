@@ -1,4 +1,4 @@
-body {
+#summer-body {
 	padding: 0;
 	margin: 0;
 	font-family: Signika, sans-serif;
@@ -216,17 +216,5 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-}
-
-a {
-  color: #00aae9;
-}
-
-a:hover {
-  color: #009ad3;
-}
-
-a:active {
-  color: #0080af;
 }
 
